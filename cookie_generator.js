@@ -29,7 +29,7 @@ autoplay.handleBuildings = function () {
   let buildings = Game.ObjectsById;
   let building_to_buy = undefined;
   for (let i = 0; i < buildings.length; i++) {
-    building = buildings[i];
+    let building = buildings[i];
     if (building.locked == 0 && building.price <= Game.cookies) {
       building_to_buy = building;
     }
