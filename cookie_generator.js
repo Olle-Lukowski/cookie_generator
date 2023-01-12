@@ -13,6 +13,7 @@ autoplay.run = function () {
   autoplay.popGoldenCookies();
   autoplay.handleBuildings();
   autoplay.handleUpgrades();
+  autoplay.autoclick();
 }
 
 autoplay.popGoldenCookies = function () {
