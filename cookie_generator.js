@@ -46,7 +46,7 @@ autoplay.handleUpgrades = function () {
   let upgrades = Game.UpgradesById;
   let upgrade_to_buy = undefined;
   for (let key in upgrades) {
-    let upgrade = upgrades["key"];
+    let upgrade = upgrades[key];
     let price = upgrade.getPrice();
     if (upgrade.unlocked == 1 && price <= Game.cookies && upgrade.bought == 0) {
       upgrade_to_buy = upgrade;
