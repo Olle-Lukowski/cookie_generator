@@ -33,7 +33,9 @@ autoplay.handleBuildings = function () {
       building_to_buy = building;
     }
   }
-  building_to_buy.buy(Math.floor(building_to_buy.price/Game.cookies));
+  if (building_to_buy != undefined) {
+    building_to_buy.buy(Math.floor(building_to_buy.price/Game.cookies));
+  }
 }
 
 setInterval(() => {
