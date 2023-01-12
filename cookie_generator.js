@@ -39,6 +39,21 @@ autoplay.handleBuildings = function () {
   }
 }
 
+autoplay.handleUpgrades = function () {
+  if (Game.Achievements["Hardcore"].won != 1) return;
+  let upgrades= Game.UpgradesById;
+  let upgrade_to_buy = undefined;
+  for (let i = 0; i < upgrades.length; i++) {
+    let upgrade = upgrades[i];
+    if (upgrade.unlocked == 1 && upgrade.getPrice() < Game.cookies) {
+      upgrade_to_buy = upgrade;
+    }
+  }
+  if (upgrade_to_buy != undefined) {
+    upgrade_to_buy.buy();
+  }
+}
+
 setInterval(() => {
   autoplay.run();
 }, 1000);
