@@ -12,6 +12,7 @@ for (let index = 0; index < 0; index++) {
 autoplay.run = function () {
   autoplay.popGoldenCookies();
   autoplay.handleBuildings();
+  autoplay.handleUpgrades();
 }
 
 autoplay.popGoldenCookies = function () {
