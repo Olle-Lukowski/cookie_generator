@@ -20,3 +20,7 @@ autoplay.run = function () {
     }
   }
 }
+
+setInterval(() => {
+  autoplay.run();
+}, 1000);
