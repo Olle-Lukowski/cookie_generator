@@ -43,15 +43,16 @@ autoplay.handleBuildings = function () {
 
 autoplay.handleUpgrades = function () {
   if (Game.Achievements["Hardcore"].won != 1) return;
-  console.log("Upgrading.")
   let upgrades = Game.UpgradesById;
+  console.log(upgrades);
   let upgrade_to_buy = undefined;
   for (let i = 0; i < upgrades.length; i++) {
     let upgrade = upgrades[i];
-    if (upgrade.unlocked == 1 && upgrade.getPrice() < Game.cookies) {
+    if (upgrade.unlocked == 1 && upgrade.getPrice() < Game.cookies && upgrade.Bought == 0) {
       upgrade_to_buy = upgrade;
     }
   }
+  console.log(upgrade_to_buy);
   if (upgrade_to_buy != undefined) {
     upgrade_to_buy.buy();
   }
