@@ -10,7 +10,10 @@ for (let index = 0; index < 0; index++) {
 */
 
 autoplay.run = function () {
-  console.log("running");
+  autoplay.popGoldenCookies();
+}
+
+autoplay.popGoldenCookies = function () {
   for (let sx in Game.shimmers) {
     console.log("found shimmer");
     let s = Game.shimmers[sx];
@@ -19,6 +22,17 @@ autoplay.run = function () {
       console.log("popped shimmer");
     }
   }
+}
+
+autoplay.handleBuildings = function () {
+  let buildings = Game.ObjectsById;
+  let building_to_buy = undefined;
+  for (let building in buildings) {
+    if (building.locked == 0 && building.price <= Game.cookies) {
+      building_to_buy = building;
+    }
+  }
+  building_to_buy.buy(Math.floor(building_to_buy.price/Game.cookies));
 }
 
 setInterval(() => {
