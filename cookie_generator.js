@@ -10,6 +10,7 @@ for (let index = 0; index < 0; index++) {
 */
 
 autoplay.run = function () {
+  console.log("running");
   for (let sx in Game.shimmers) {
     console.log("found shimmer");
     let s = Game.shimmers[sx];
