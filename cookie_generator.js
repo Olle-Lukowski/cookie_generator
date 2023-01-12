@@ -55,6 +55,15 @@ autoplay.handleUpgrades = function () {
   }
 }
 
+autoplay.autoclick = function () {
+  if (Game.Achievements["True Neverclick"].won != 1) return;
+  for (let index = 1; index < 11; index++) {
+    setTimeout(() => {
+      Game.ClickCookie();
+    }, 100 * index);
+  }
+}
+
 setInterval(() => {
   autoplay.run();
 }, 1000);
