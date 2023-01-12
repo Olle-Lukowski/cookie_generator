@@ -43,7 +43,8 @@ autoplay.handleBuildings = function () {
 
 autoplay.handleUpgrades = function () {
   if (Game.Achievements["Hardcore"].won != 1) return;
-  let upgrades= Game.UpgradesById;
+  console.log("Upgrading.")
+  let upgrades = Game.UpgradesById;
   let upgrade_to_buy = undefined;
   for (let i = 0; i < upgrades.length; i++) {
     let upgrade = upgrades[i];
@@ -58,7 +59,7 @@ autoplay.handleUpgrades = function () {
 
 autoplay.autoclick = function () {
   if (Game.Achievements["True Neverclick"].won != 1) return;
-  for (let index = 1; index < 11; index++) {
+  for (let index = 0; index < 10; index++) {
     setTimeout(() => {
       Game.ClickCookie();
     }, 100 * index);
