@@ -10,6 +10,8 @@ for (let index = 0; index < 0; index++) {
 */
 
 autoplay.run = function () {
+  autoplay.now = Date.now();
+  autoplay.handleLumps(autoplay.now - Game.lumpT); 
   autoplay.popGoldenCookies();
   autoplay.handleBuildings();
   autoplay.handleUpgrades();
@@ -18,11 +20,9 @@ autoplay.run = function () {
 
 autoplay.popGoldenCookies = function () {
   for (let sx in Game.shimmers) {
-    console.log("found shimmer");
     let s = Game.shimmers[sx];
     if (s.type == "golden") {
       s.pop();
-      console.log("popped shimmer");
     }
   }
 }
@@ -63,6 +63,25 @@ autoplay.autoclick = function () {
     setTimeout(() => {
       Game.ClickCookie();
     }, 100 * index);
+  }
+}
+
+autoplay.handleLumps = function (age) {
+  if (age >= Game.lumpRipeAge) {
+    Game.clickLump();
+    autoplay.useLump();
+  }
+}
+
+autoplay.useLump = function () {
+  if (Game.lumps == 0) return;
+
+  let farm = Game.Objects["Farm"];
+  if (farm.level < 9) {
+    if (farm.level < Game.lumps) {
+      farm.levelUp();
+      autoplay.useLump();
+    }
   }
 }
 
